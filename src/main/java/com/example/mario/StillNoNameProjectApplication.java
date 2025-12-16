@@ -10,4 +10,9 @@ public class StillNoNameProjectApplication {
 		SpringApplication.run(StillNoNameProjectApplication.class, args);
 	}
 
+
+    public void printHelloWorld() {
+        System.out.println("Hello World");
+    }
+
 }
