@@ -7,12 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class StillNoNameProjectApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(StillNoNameProjectApplication.class, args);
-	}
-
-
-    public void printHelloWorld() {
         System.out.println("Hello World");
+		SpringApplication.run(StillNoNameProjectApplication.class, args);
     }
 
 }
