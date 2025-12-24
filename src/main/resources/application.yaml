@@ -1,3 +1,18 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: "Still no name app"
+    description: "App developed for learning purposes"
+    version: "1.0"
+
 spring:
   application:
     name: still-no-name-project
