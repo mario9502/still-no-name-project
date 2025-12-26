@@ -16,3 +16,7 @@ info:
 spring:
   application:
     name: still-no-name-project
+
+server:
+  servlet:
+    context-path: /api
