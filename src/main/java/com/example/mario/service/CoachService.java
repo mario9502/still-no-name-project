@@ -10,7 +10,7 @@ public class CoachService {
     private final Coach coach;
 
     public CoachService(
-            @Qualifier("boxingCoach") Coach coach
+            @Qualifier("volleyballCoach") Coach coach
     ) {
         this.coach = coach;
     }
