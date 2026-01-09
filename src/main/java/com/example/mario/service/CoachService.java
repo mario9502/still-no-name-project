@@ -18,4 +18,8 @@ public class CoachService {
     public String getDailyWorkout() {
         return coach.getDailyWorkout();
     }
+
+    public String testPullRequest() {
+        return "";
+    }
 }
