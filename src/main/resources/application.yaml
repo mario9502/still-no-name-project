@@ -1,3 +1,14 @@
+spring:
+  application:
+    name: still-no-name-project
+  datasource:
+    url: "jdbc:mysql://127.0.0.1:3306/coach_schema"
+    username: "test_user"
+    password: "test_user"
+  data:
+    jdbc:
+      dialect: mysql
+
 management:
   endpoints:
     web:
@@ -12,10 +23,6 @@ info:
     name: "Still no name app"
     description: "App developed for learning purposes"
     version: "1.0"
-
-spring:
-  application:
-    name: still-no-name-project
 
 server:
   servlet:
