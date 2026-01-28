@@ -57,4 +57,30 @@ public class VolleyballCoach implements Coach {
     public void doMyDestroyStuff() {
         log.info("Destroying...: {}", getClass().getSimpleName());
     }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    @Override
+    public String toString() {
+        return "VolleyballCoach{" +
+                "email='" + email + '\'' +
+                ", id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
 }

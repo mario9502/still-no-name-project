@@ -1,7 +1,9 @@
 package com.example.mario;
 
 import com.example.mario.dao.CoachDAOImpl;
+import com.example.mario.model.Coach;
 import com.example.mario.model.VolleyballCoach;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -22,7 +24,32 @@ public class StillNoNameProjectApplication {
 	public CommandLineRunner commandLineRunner(
 			CoachDAOImpl coachDAO
 	) {
-		return args -> createCoach(coachDAO);
+		return args -> findAllByLastName(coachDAO);
+	}
+
+	private void findAllByLastName(CoachDAOImpl coachDAO) {
+
+		List<Coach> coachList = coachDAO.findAllByLastName("Doe");
+
+		coachList.forEach(coach -> {
+					if (coach instanceof VolleyballCoach volleyballCoach) {
+						log.info(">>>>>>>>>>>>>{}<<<<<<<<<<<<<<", volleyballCoach);
+					}
+				}
+		);
+	}
+
+	private void createMultipleCoaches(CoachDAOImpl coachDAO) {
+
+		log.info("Creating a new Coach entity...");
+		VolleyballCoach volleyballCoach1 = new VolleyballCoach("John", "Doe", "john@doe.com");
+		VolleyballCoach volleyballCoach2 = new VolleyballCoach("Paul", "Lewinsky", "paul@doe.com");
+		VolleyballCoach volleyballCoach3 = new VolleyballCoach("Steve", "Harrington", "steve@doe.com");
+
+		log.info("Saving the Coach entity...");
+		coachDAO.save(volleyballCoach1);
+		coachDAO.save(volleyballCoach2);
+		coachDAO.save(volleyballCoach3);
 	}
 
 	private void createCoach(CoachDAOImpl coachDAO) {
@@ -32,5 +59,7 @@ public class StillNoNameProjectApplication {
 
 		log.info("Saving the Coach entity...");
 		coachDAO.save(volleyballCoach);
+
+        log.info("Successfully create coach with ID: {}", volleyballCoach.getId());
 	}
 }
