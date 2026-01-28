@@ -38,4 +38,9 @@ public class  CoachDAOImpl implements CoachDAO{
     public Coach update(Coach coach) {
         return entityManager.merge(coach);
     }
+
+    @Transactional
+    public Coach testMethod(Coach coach) {
+        return entityManager.merge(coach);
+    }
 }
