@@ -8,4 +8,6 @@ public interface CoachDAO {
     void save(Coach coach);
 
     List<Coach> findAllByLastName(String lastName);
+
+    Coach update(Coach coach);
 }

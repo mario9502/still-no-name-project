@@ -8,6 +8,9 @@ spring:
   data:
     jdbc:
       dialect: mysql
+  jpa:
+    hibernate:
+      ddl-auto: update
 
 management:
   endpoints:
@@ -27,3 +30,12 @@ info:
 server:
   servlet:
     context-path: /api
+
+logging:
+  level:
+    org:
+      hibernate:
+        sql: debug
+        orm:
+          jdbc:
+            bind: trace

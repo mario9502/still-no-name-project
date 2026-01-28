@@ -24,7 +24,19 @@ public class StillNoNameProjectApplication {
 	public CommandLineRunner commandLineRunner(
 			CoachDAOImpl coachDAO
 	) {
-		return args -> findAllByLastName(coachDAO);
+		return args -> createMultipleCoaches(coachDAO);
+	}
+
+	private void updateCoachLastName(CoachDAOImpl coachDAO) {
+		Coach doe = coachDAO.findAllByLastName("Cena").getFirst();
+
+		if (doe instanceof VolleyballCoach volleyballCoach) {
+			volleyballCoach.setLastName("Doe");
+
+			Coach updatedCoach = coachDAO.update(volleyballCoach);
+			log.info(">>>>>>>>>>>>>>>Updated last name of coach<<<<<<<<<<<<<<<");
+			log.info(">>>>>>>>>>>>>>>{}<<<<<<<<<<<<<<<", updatedCoach);
+		}
 	}
 
 	private void findAllByLastName(CoachDAOImpl coachDAO) {

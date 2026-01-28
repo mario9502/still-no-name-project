@@ -32,4 +32,10 @@ public class  CoachDAOImpl implements CoachDAO{
 
         return query.getResultList();
     }
+
+    @Override
+    @Transactional
+    public Coach update(Coach coach) {
+        return entityManager.merge(coach);
+    }
 }
