@@ -1,6 +1,7 @@
 package com.example.mario.dao;
 
 import com.example.mario.model.Coach;
+import com.example.mario.model.VolleyballCoach;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import java.util.List;
@@ -20,7 +21,7 @@ public class  CoachDAOImpl implements CoachDAO{
 
     @Override
     @Transactional
-    public void save(Coach coach) {
+    public void save(VolleyballCoach coach) {
         entityManager.persist(coach);
     }
 
@@ -37,6 +38,14 @@ public class  CoachDAOImpl implements CoachDAO{
     @Transactional
     public Coach update(Coach coach) {
         return entityManager.merge(coach);
+    }
+
+    @Override
+    public List<Coach> findAll() {
+
+        TypedQuery<Coach> query = entityManager.createQuery("SELECT c FROM VolleyballCoach AS c", Coach.class);
+
+        return query.getResultList();
     }
 
     @Transactional

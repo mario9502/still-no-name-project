@@ -3,8 +3,8 @@ spring:
     name: still-no-name-project
   datasource:
     url: "jdbc:mysql://127.0.0.1:3306/coach_schema"
-    username: "test_user"
-    password: "test_user"
+    username: "root"
+    password: "1234"
   data:
     jdbc:
       dialect: mysql

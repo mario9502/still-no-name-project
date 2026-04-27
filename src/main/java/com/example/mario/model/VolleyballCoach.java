@@ -62,12 +62,32 @@ public class VolleyballCoach implements Coach {
         return id;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
     public void setLastName(String lastName) {
         if (!lastName.isBlank()) {
             this.lastName = lastName;
         } else {
             log.warn("NULL value can't be assigned");
         }
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     @Override
