@@ -2,7 +2,7 @@ spring:
   application:
     name: still-no-name-project
   datasource:
-    url: "jdbc:mysql://127.0.0.1:3306/coach_schema"
+    url: "jdbc:mysql://127.0.0.1:3306/machine"
     username: "root"
     password: "1234"
   data:
