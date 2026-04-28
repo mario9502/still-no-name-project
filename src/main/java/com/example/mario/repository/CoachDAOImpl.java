@@ -1,6 +1,7 @@
-package com.example.mario.dao;
+package com.example.mario.repository;
 
 import com.example.mario.model.Coach;
+import com.example.mario.model.VolleyballCoach;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import java.util.List;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public class  CoachDAOImpl implements CoachDAO{
+public class  CoachDAOImpl{
 
     private final EntityManager entityManager;
 
@@ -18,13 +19,10 @@ public class  CoachDAOImpl implements CoachDAO{
         this.entityManager = entityManager;
     }
 
-    @Override
-    @Transactional
-    public void save(Coach coach) {
+    public void save(VolleyballCoach coach) {
         entityManager.persist(coach);
     }
 
-    @Override
     public List<Coach> findAllByLastName(String lastName) {
 
         TypedQuery<Coach> query = entityManager.createQuery("SELECT c FROM VolleyballCoach AS c WHERE c.lastName LIKE :lastNameParam", Coach.class);
@@ -33,14 +31,26 @@ public class  CoachDAOImpl implements CoachDAO{
         return query.getResultList();
     }
 
-    @Override
-    @Transactional
     public Coach update(Coach coach) {
         return entityManager.merge(coach);
+    }
+
+    public List<Coach> findAll() {
+
+        TypedQuery<Coach> query = entityManager.createQuery("SELECT c FROM VolleyballCoach AS c", Coach.class);
+
+        return query.getResultList();
     }
 
     @Transactional
     public Coach testMethod(Coach coach) {
         return entityManager.merge(coach);
+    }
+
+    public Coach findByEmail(String email) {
+        TypedQuery<Coach> typedQuery = entityManager.createQuery("SELECT vc FROM VolleyballCoach AS vc WHERE vc.email LIKE :emailParam", Coach.class);
+        typedQuery.setParameter("emailParam", email);
+
+        return typedQuery.getSingleResult();
     }
 }

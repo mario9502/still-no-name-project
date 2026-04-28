@@ -1,6 +1,6 @@
 package com.example.mario;
 
-import com.example.mario.dao.CoachDAOImpl;
+import com.example.mario.repository.CoachDAOImpl;
 import com.example.mario.model.Coach;
 import com.example.mario.model.VolleyballCoach;
 import java.util.List;
@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class StillNoNameProjectApplication {
@@ -20,7 +19,7 @@ public class StillNoNameProjectApplication {
 		SpringApplication.run(StillNoNameProjectApplication.class, args);
     }
 
-	@Bean
+	//@Bean
 	public CommandLineRunner commandLineRunner(
 			CoachDAOImpl coachDAO
 	) {
