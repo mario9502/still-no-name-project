@@ -1,6 +1,6 @@
 package com.example.mario.service;
 
-import com.example.mario.dao.CoachDAOImpl;
+import com.example.mario.repository.CoachDAOImpl;
 import com.example.mario.model.Coach;
 import com.example.mario.model.VolleyballCoach;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -34,7 +34,7 @@ public class CoachService {
         return coachDAO.findAll();
     }
 
-    public void findByEmail(String email) {
-        
+    public Coach findByEmail(String email) {
+        return coachDAO.findByEmail(email);
     }
 }

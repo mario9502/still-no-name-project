@@ -25,14 +25,12 @@ public class WebRestController {
         return coachService.getAll();
     }
 
-//    @GetMapping("/getCoachByEmail/{email}")
-//    public Coach getCoachByMail(
-//            @RequestParam String email
-//    ) {
-//        coachService.findByEmail(email) {
-//
-//        }
-//    }
+    @GetMapping("/getCoachByEmail/{email}")
+    public Coach getCoachByMail(
+            @PathVariable String email
+    ) {
+        return coachService.findByEmail(email);
+    }
 
     @GetMapping("/getDailyWorkout")
     public String getDailyWorkout() {

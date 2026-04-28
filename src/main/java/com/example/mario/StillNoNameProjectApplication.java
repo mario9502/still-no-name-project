@@ -1,6 +1,6 @@
 package com.example.mario;
 
-import com.example.mario.dao.CoachDAOImpl;
+import com.example.mario.repository.CoachDAOImpl;
 import com.example.mario.model.Coach;
 import com.example.mario.model.VolleyballCoach;
 import java.util.List;
