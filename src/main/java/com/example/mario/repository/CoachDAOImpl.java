@@ -1,8 +1,10 @@
 package com.example.mario.repository;
 
+import com.example.mario.exception.EntityNotFound;
 import com.example.mario.model.Coach;
 import com.example.mario.model.VolleyballCoach;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
 import java.util.List;
 import org.springframework.stereotype.Repository;
@@ -51,6 +53,10 @@ public class  CoachDAOImpl{
         TypedQuery<Coach> typedQuery = entityManager.createQuery("SELECT vc FROM VolleyballCoach AS vc WHERE vc.email LIKE :emailParam", Coach.class);
         typedQuery.setParameter("emailParam", email);
 
-        return typedQuery.getSingleResult();
+        try {
+            return typedQuery.getSingleResult();
+        } catch (NoResultException exception) {
+            throw new EntityNotFound("User with such email doesn't exists");
+        }
     }
 }
