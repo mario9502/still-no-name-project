@@ -81,11 +81,12 @@ public class ConstructionEquipment implements Machine {
 
     @Override
     public String toString() {
-        return "VolleyballCoach{" +
-                "email='" + vin + '\'' +
-                ", id=" + id +
-                ", firstName='" + brand + '\'' +
-                ", lastName='" + model + '\'' +
+        return "ConstructionEquipment{" +
+                "id=" + id +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", vin='" + vin + '\'' +
+                ", workingHours=" + workingHours +
                 '}';
     }
 
